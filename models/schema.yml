@@ -26,6 +26,11 @@ sources:
             description: código do produto
           - name: purchSE_PRICE
             description: preço de compra do produto
+            tests:
+              - SELECT products_id, COUNT(*)
+              - FROM raw_gz_product
+              - GROUP BY products_id
+              - HAVING COUNT(*) > 1;
       - name: ship
         identifier: raw_gz_ship
         description: list of shipping costs by each orders_id
@@ -40,6 +45,11 @@ sources:
             description: logistics cost of order
           - name: ship_cost
             description: ship cost of order
+            tests:
+              - SELECT orders_id, COUNT(*)
+              - FROM raw_gz_ship
+              - GROUP BY orders_id
+              - HAVING COUNT(*) > 1;
         
              
         
