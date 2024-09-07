@@ -11,12 +11,10 @@ renamed as (
     select
         orders_id,
         shipping_fee,
-        shipping_fee_1,
         logcost,
-        CAST(ship_cost AS FLOAT) AS ship_cost,
+        CAST(ship_cost AS FLOAT64) AS ship_cost,
 
     from source
-    WHERE shipping_fee <> shipping_fee_1
-)
+    )
 
 select * from renamed
