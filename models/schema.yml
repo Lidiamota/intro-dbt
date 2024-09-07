@@ -6,25 +6,40 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
+        description: sales of Greenweez / we have on row per product_id found in each orders_id
         columns:
           - name: date_date
+            description: data da vemda
           - name: orders_id
+            description: Primary key, order number
           - name: pdt_id
+            description: código do produto. Essa coluna foi renomeada de pdt para product
           - name: revenue
+            description: é o valor das vendas de determinado produto em determinado dia
           - name: quantity
+            description: quantidade vendida do produto em determinado dia
       - name: product
         identifier: raw_gz_product
+        description: preço de cada produto
         columns:
           - name: products_id
+            description: código do produto
           - name: purchSE_PRICE
+            description: preço de compra do produto
       - name: ship
         identifier: raw_gz_ship
+        description: list of shipping costs by each orders_id
         columns: 
           - name: orders_id
+            description: Pirmary key, order number
           - name: shipping_fee
+            description: value to delivery of order
           - name: shipping_fee_1
+            description: value to delivery of order. Duplicate column. This column was deleted.
           - name: logCost
+            description: logistics cost of order
           - name: ship_cost
+            description: ship cost of order
         
              
         
