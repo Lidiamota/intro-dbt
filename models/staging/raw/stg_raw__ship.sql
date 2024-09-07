@@ -11,13 +11,12 @@ renamed as (
     select
         orders_id,
         shipping_fee,
-        CASE WHEN shipping_fee <> shipping_fee_1 THEN shipping_fee ELSE NULL END AS shipping_fee_1,
-    ,
+        shipping_fee_1,
         logcost,
-        CAST(ship_cost AS NUMERIC) AS ship_cost
+        CAST(ship_cost AS FLOAT) AS ship_cost,
 
     from source
-
+    WHERE shipping_fee <> shipping_fee_1
 )
 
 select * from renamed
