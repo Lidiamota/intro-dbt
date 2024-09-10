@@ -18,6 +18,9 @@ sources:
             description: é o valor das vendas de determinado produto em determinado dia
           - name: quantity
             description: quantidade vendida do produto em determinado dia
+        tests:
+          - unique:
+            column_name: "(orders_id || '-' || pdt_id)"    
       - name: product
         identifier: raw_gz_product
         description: preço de cada produto
@@ -26,9 +29,9 @@ sources:
             description: código do produto
           - name: purchSE_PRICE
             description: preço de compra do produto
-            tests:
-              - unique
-              - not_null
+        tests:
+          - unique:
+            column_name: "(orders_id || '-' || pdt_id)"
       - name: ship
         identifier: raw_gz_ship
         description: list of shipping costs by each orders_id
@@ -43,9 +46,9 @@ sources:
             description: logistics cost of order
           - name: ship_cost
             description: ship cost of order
-            tests:
-              - unique
-              - not_null
+        tests:
+          - unique:
+            column_name: "(orders_id || '-' || pdt_id)"
         
              
         
